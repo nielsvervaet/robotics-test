@@ -25,7 +25,7 @@
 
   <!-- gripper related -->
   <rosparam file="$(find rg2_gazebo)/config/gazebo_controller.yaml" command="load" />
-  <rosparam file="$(find rg2_gazebo)/config/position_controller.yaml" command="load"/>
+  <rosparam file="$(find simple_scene)/config/rg2_position_controller.yaml" command="load"/>
 
   <!-- Load urdf on the parameter server -->
   <include file="$(arg robot_description_file)">

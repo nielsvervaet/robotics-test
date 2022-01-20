@@ -48,6 +48,8 @@
       -z $(arg spawn_z)
       -J $(arg gazebo_model_name)::shoulder_lift_joint -1.57
       -J $(arg gazebo_model_name)::elbow_joint 1.57
+      -J $(arg gazebo_model_name)::wrist_1_joint -1.57
+      -J $(arg gazebo_model_name)::wrist_2_joint -1.57
       -unpause"
     output="screen" respawn="false" />
 
