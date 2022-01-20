@@ -9,9 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rosdep init \
     && rosdep update
 
-COPY catkin_ws /home/catkin_ws
+COPY catkin_ws/src /home/catkin_ws/src
+COPY catkin_ws/src/simple_scene/worlds /usr/share/gazebo-11/worlds
+COPY catkin_ws/src/simple_scene/models /root/.gazebo/models
 
-RUN apt-get update \
+RUN . /opt/ros/noetic/setup.sh \
+    && apt-get update \
     && cd /home/catkin_ws \
     && rosdep install --rosdistro=noetic --from-path . -y --ignore-src \
     && catkin build
