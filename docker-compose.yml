@@ -1,0 +1,32 @@
+version: '3'
+networks:
+  ros:
+    driver: bridge
+
+services:
+  ros-master:
+    image: remy:rse-test
+    command: stdbuf -o L roscore
+    networks:
+      - ros
+    restart: always
+
+  gazebo:
+    image: remy:rse-test
+    depends_on:
+      - ros-master
+    environment:
+      - "ROS_MASTER_URI=http://ros-master:11311"
+      - "NVIDIA_VISIBLE_DEVICES=all"
+      - "NVIDIA_DRIVER_CAPABILITIES=all"
+      - "XAUTHORITYS"
+      - "DISPLAY"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./catkin_ws:/home/catkin_ws
+    devices:
+      - "/dev/dri/"
+    command: bash -c "cd /home/catkin_ws && source devel/setup.bash && roslaunch simple_scene world_bringup.launch"
+    runtime: nvidia
+    networks:
+      - ros
