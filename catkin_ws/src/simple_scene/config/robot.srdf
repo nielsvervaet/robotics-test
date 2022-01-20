@@ -57,7 +57,7 @@
     <disable_collisions link1="l_moment_arm_link" link2="l_finger_link" reason="Adjacent" />
     <disable_collisions link1="l_moment_arm_link" link2="l_truss_arm_link" reason="Adjacent" />
     <disable_collisions link1="l_moment_arm_link" link2="r_truss_arm_link" reason="Adjacent" />
-    <disable_collisions link1="r_moment_arm_link" link2="l_moment_arm_link" reason="Adjacent" />   
+    <disable_collisions link1="r_moment_arm_link" link2="l_moment_arm_link" reason="Adjacent" />
     <disable_collisions link1="r_moment_arm_link" link2="r_finger_link" reason="Adjacent" />
     <disable_collisions link1="r_moment_arm_link" link2="r_truss_arm_link" reason="Adjacent" />
     <disable_collisions link1="r_moment_arm_link" link2="l_truss_arm_link" reason="Adjacent" />

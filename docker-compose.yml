@@ -1,22 +1,19 @@
 version: '3'
-networks:
-  ros:
-    driver: bridge
 
 services:
   ros-master:
-    image: remy:rse-test
+    image: registry.gitlab.com/mingu.kwon/rse-test-task:latest
     command: stdbuf -o L roscore
-    networks:
-      - ros
+    network_mode: host
     restart: always
 
   gazebo:
-    image: remy:rse-test
+    image: registry.gitlab.com/mingu.kwon/rse-test-task:latest
     depends_on:
       - ros-master
+    network_mode: host
     environment:
-      - "ROS_MASTER_URI=http://ros-master:11311"
+      # - "ROS_MASTER_URI=http://ros-master:11311"
       - "NVIDIA_VISIBLE_DEVICES=all"
       - "NVIDIA_DRIVER_CAPABILITIES=all"
       - "XAUTHORITYS"
@@ -25,7 +22,6 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     devices:
       - "/dev/dri/"
-    command: bash -c "cd /home/catkin_ws && source devel/setup.bash && roslaunch simple_scene gazebo.launch"
+    command: bash -c "cd /home/catkin_ws && source devel/setup.bash && roslaunch --wait simple_scene gazebo.launch"
     runtime: nvidia
-    networks:
-      - ros
+

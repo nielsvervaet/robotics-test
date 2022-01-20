@@ -39,7 +39,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='cafe_table'>
+    <model name='cafe_table_1'>
       <static>1</static>
       <link name='link'>
         <collision name='surface'>
@@ -172,7 +172,7 @@
       <real_time>0 0</real_time>
       <wall_time>1642689615 698923219</wall_time>
       <iterations>0</iterations>
-      <model name='box_block'>
+      <model name='block_3'>
         <pose>0.172828 -0.660427 0.830071 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -182,7 +182,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='box_block_clone'>
+      <model name='block_4'>
         <pose>-0.081509 -0.464143 0.830071 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -192,7 +192,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='box_block_clone_0'>
+      <model name='block_5'>
         <pose>0.206111 -0.841794 0.830071 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -202,7 +202,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='box_block_clone_1'>
+      <model name='block_1'>
         <pose>0.354851 -0.361049 0.830071 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -212,7 +212,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='box_block_clone_2'>
+      <model name='block_2'>
         <pose>0.373065 -0.646074 0.830071 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -222,7 +222,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='cafe_table'>
+      <model name='cafe_table_1'>
         <pose>0 -0.6 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -232,7 +232,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='cafe_table_clone'>
+      <model name='cafe_table_2'>
         <pose>0 0.6 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
@@ -252,7 +252,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='unit_cylinder'>
+      <model name='column'>
         <pose>0.007517 0.039531 -2.08389 0.064087 0.124552 0.476821</pose>
         <scale>0.146833 0.146833 0.668379</scale>
         <link name='link'>
@@ -273,8 +273,8 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <model name='unit_cylinder'>
-      <pose>0.362867 0.253054 0.5 0 -0 0</pose>
+    <model name='column'>
+      <pose>0.0 0. 0.3 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -291,8 +291,8 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>157.943</radius>
-              <length>3.34913</length>
+              <radius>0.08</radius>
+              <length>0.699</length>
             </cylinder>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -312,8 +312,8 @@
         <visual name='visual'>
           <geometry>
             <cylinder>
-              <radius>157.943</radius>
-              <length>3.34913</length>
+              <radius>0.08</radius>
+              <length>0.699</length>
             </cylinder>
           </geometry>
           <material>
@@ -328,7 +328,7 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='cafe_table_clone'>
+    <model name='cafe_table_2'>
       <static>1</static>
       <link name='link'>
         <collision name='surface'>
@@ -407,7 +407,7 @@
       </link>
       <pose>0.253134 0.691157 0 0 -0 0</pose>
     </model>
-    <model name='box_block'>
+    <model name='block_3'>
       <link name='link'>
         <inertial>
           <mass>0.063</mass>
@@ -509,7 +509,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.172828 -0.660417 0.79001 -0.000672 0 0</pose>
     </model>
-    <model name='box_block_clone'>
+    <model name='block_4'>
       <link name='link'>
         <inertial>
           <mass>0.063</mass>
@@ -611,7 +611,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.012713 -0.745442 0.830071 0 -0 0</pose>
     </model>
-    <model name='box_block_clone_0'>
+    <model name='block_5'>
       <link name='link'>
         <inertial>
           <mass>0.063</mass>
@@ -713,7 +713,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.172918 -0.384887 0.830071 0 -0 0</pose>
     </model>
-    <model name='box_block_clone_1'>
+    <model name='block_1'>
       <link name='link'>
         <inertial>
           <mass>0.063</mass>
@@ -815,7 +815,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.21184 -0.332866 0.830071 0 -0 0</pose>
     </model>
-    <model name='box_block_clone_2'>
+    <model name='block_2'>
       <link name='link'>
         <inertial>
           <mass>0.063</mass>
