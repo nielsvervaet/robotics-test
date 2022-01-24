@@ -2,18 +2,16 @@ version: '3'
 
 services:
   ros-master:
-    image: registry.gitlab.com/mingu.kwon/rse-test-task:latest
+    image: ghcr.io/remyrobotics/robotics-test:latest
     command: stdbuf -o L roscore
     network_mode: host
-    restart: always
 
   gazebo:
-    image: registry.gitlab.com/mingu.kwon/rse-test-task:latest
+    image: ghcr.io/remyrobotics/robotics-test:latest
     depends_on:
       - ros-master
     network_mode: host
     environment:
-      # - "ROS_MASTER_URI=http://ros-master:11311"
       - "NVIDIA_VISIBLE_DEVICES=all"
       - "NVIDIA_DRIVER_CAPABILITIES=all"
       - "XAUTHORITYS"
@@ -24,4 +22,3 @@ services:
       - "/dev/dri/"
     command: bash -c "cd /home/catkin_ws && source devel/setup.bash && roslaunch --wait simple_scene gazebo.launch"
     runtime: nvidia
-
