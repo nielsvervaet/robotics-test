@@ -7,27 +7,33 @@ You are asked to design and implement a pick-and-place application using a Gazeb
 The scope of this assignment is limited to the robot control part of a continuous pick-and-place cycle. There are two tables; one with 5 blocks and one empty. The goal is to move all of the blocks onto the other table.
 
 No vision/perception is needed. Poses of the blocks are accessible through the ros_service:
+
 `/gazebo/get_model_state`
 
 The gripper can be controlled through a topic:
+
 `/gripper_joint_position/command`
 
 ## Build && Run
 
 ### Using docker image
 
-`docker pull ghcr.io/remyrobotics/robotics-test:latest`
-`xhost local:root`
-`docker-compose up`
+```bash
+$ docker pull ghcr.io/remyrobotics/robotics-test:latest
+$ xhost local:root
+$ docker-compose up
+```
 
 Alternatively, you can build manually with the given Dockerfile.
 
 ### Building from Source
 
-`cd catkin_ws`
-`catkin build`
-`source devel/setup.bash`
-`roslaunch simple_scene gazebo.launch`
+```bash
+$ cd catkin_ws
+$ catkin build
+$ source devel/setup.bash
+$ roslaunch simple_scene gazebo.launch
+```
 
 ## Evaluation
 
