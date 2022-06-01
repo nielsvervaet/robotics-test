@@ -29,6 +29,7 @@ Alternatively, you can build manually with the given Dockerfile.
 ### Building from Source
 
 ```bash
+$ ./build.sh
 $ cd catkin_ws
 $ catkin build
 $ source devel/setup.bash
