@@ -16,7 +16,7 @@
   </include>
 
   <include file="$(find moveit_ur_robot)/launch/moveit_rviz.launch">
-    <!-- <arg name="config" value="true"/> -->
+    <arg name="rviz_config" value="true"/>
   </include>
 
 </launch>
