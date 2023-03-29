@@ -8,6 +8,7 @@
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
   <maintainer email="mingu.kwon@remyrobotics.com">mingu kwon</maintainer>
+  <maintainer email="nv.vervaet@outlook.com">Niels Vervaet</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -18,17 +19,10 @@
   <license>O</license>
   <license>T</license>
 
-
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
   <!-- <url type="website">http://wiki.ros.org/simple_scene</url> -->
-
-
-  <!-- Author tags are optional, multiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintainers, but could be -->
-  <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
 
 
   <!-- The *depend tags are used to specify dependencies -->
@@ -53,10 +47,18 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <depend>roscpp</depend>
+  <depend>rosparam_shortcuts</depend>
+  <depend>moveit_core</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_task_constructor_core</depend>
+
+  <exec_depend>moveit_task_constructor_capabilities</exec_depend>
+  <exec_depend>moveit_resources_panda_moveit_config</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <!-- Other tools can request additional information be placed here -->z
   </export>
 </package>

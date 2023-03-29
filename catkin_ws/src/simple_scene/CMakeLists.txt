@@ -8,8 +8,14 @@ project(simple_scene)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(
-    catkin REQUIRED
+    catkin REQUIRED COMPONENTS
+    roscpp
+	moveit_core
+	moveit_task_constructor_core
+	moveit_ros_planning_interface
+	rosparam_shortcuts
 )
+moveit_build_options()
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -98,7 +104,7 @@ find_package(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES simple_scene
-#  CATKIN_DEPENDS other_catkin_pkg
+    CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
 
