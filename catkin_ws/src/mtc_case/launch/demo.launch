@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+  <!-- <include file="$(find simple_scene)/launch/robot_bringup.launch"/> -->
+  <!-- <include file="$(find moveit_resources_panda_moveit_config)/launch/move_group.launch" pass_all_args="true">
+    <arg name="allow_trajectory_execution" value="true" />
+    <arg name="info" value="true" />
+    <arg name="arm_id" value = "manipulator"/>
+  </include> -->
+
+  <!-- Load panda demo with MTC's execution capability -->
+  <include file="$(find moveit_resources_panda_moveit_config)/launch/demo.launch">
+    <param name="arm_id" value="manipulator"/>
+  </include>
+
+
+  <param name="move_group/capabilities" value="move_group/ExecuteTaskSolutionCapability" />
+
+
+
+
+  <!-- Run rviz with prepared config -->
+  <!-- <include file="$(find moveit_resources_panda_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find moveit_task_constructor_demo)/config/mtc.rviz" />
+  </include> -->
+</launch>
