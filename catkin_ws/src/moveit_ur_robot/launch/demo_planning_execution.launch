@@ -11,12 +11,15 @@
     <rosparam param="/source_list">[/joint_states]</rosparam>
   </node> -->
 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+
   <include file="$(find moveit_ur_robot)/launch/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />
   </include>
 
   <include file="$(find moveit_ur_robot)/launch/moveit_rviz.launch">
-    <arg name="rviz_config" value="true"/>
+    <arg name="rviz_config" value="$(find mtc_ur_robot)/config/mtc.rviz" />
   </include>
 
 </launch>
