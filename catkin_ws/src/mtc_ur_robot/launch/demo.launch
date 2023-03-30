@@ -11,7 +11,7 @@
   </include> -->
 
   <!-- Load panda demo with MTC's execution capability -->
-  <include file="$(find mtc_panda)/launch/demo.launch">
+  <include file="$(find moveit_ur_robot)/launch/demo_planning_execution.launch">
     <param name="arm_id" value="manipulator"/>
   </include>
 
