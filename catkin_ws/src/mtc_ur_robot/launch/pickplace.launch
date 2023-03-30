@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Run MTC pick and place -->
+  <node name="mtc_ur_robot" pkg="mtc_ur_robot" type="pick_place_demo" output="screen">
+    <param name="execute" value="true" />
+    <rosparam command="load" file="$(find mtc_ur_robot)/config/ur_robot_config.yaml" />
+  </node>
+</launch>

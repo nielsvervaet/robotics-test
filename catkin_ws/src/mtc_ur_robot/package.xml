@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mtc_ur_robot</name>
+  <version>0.0.1</version>
+  <description>Demo illustrating a pick and place application for the UR robot</description>
+
+  <author email="nv.vervaet@outlook.com">Niels Vervaet</author>
+  <maintainer email="nv.vervaet@outlook.com">Niels Vervaet</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rosparam_shortcuts</depend>
+
+  <depend>moveit_core</depend>
+  <depend>moveit_ros_planning_interface</depend>
+
+  <depend>moveit_task_constructor_core</depend>
+
+  <exec_depend>moveit_task_constructor_capabilities</exec_depend>
+  <!-- <exec_depend>moveit_resources_panda_moveit_config</exec_depend> -->
+
+  <test_depend>rostest</test_depend>
+  <test_depend>moveit_fake_controller_manager</test_depend>
+</package>
