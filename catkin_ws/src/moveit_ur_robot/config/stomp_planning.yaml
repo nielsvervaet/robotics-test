@@ -37,8 +37,8 @@ stomp/manipulator:
         publish_intermediate: True
         marker_topic: stomp_trajectory
         marker_namespace: optimized
-stomp/endeffector:
-  group_name: endeffector
+stomp/hand:
+  group_name: hand
   optimization:
     num_timesteps: 60
     num_iterations: 40
@@ -50,7 +50,7 @@ stomp/endeffector:
   task:
     noise_generator:
       - class: stomp_moveit/NormalDistributionSampling
-        stddev: []
+        stddev: [0.05]
     cost_functions:
       - class: stomp_moveit/CollisionCheck
         collision_penalty: 1.0

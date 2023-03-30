@@ -455,6 +455,12 @@
             <!--robotNamespace>/</robotNamespace-->
             <!--robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType-->
         </plugin>
+        <plugin filename="libgazebo_ros_moveit_planning_scene.so" name="gazebo_ros_moveit_planning_scene">
+            <topicName>/planning_scene</topicName>
+            <sceneName>laboratory</sceneName>
+            <robotName>my_robot</robotName>
+            <updatePeriod>0.5</updatePeriod>
+        </plugin>
     </gazebo>
     <!-- ros_control plugin -->
     <!-- <gazebo>

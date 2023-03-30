@@ -4,8 +4,8 @@ moveit_setup_assistant_config:
     relative_path: urdf/robot.urdf.xacro
     xacro_args: ""
   SRDF:
-    relative_path: config/ur_robot_gazebo.srdf
+    relative_path: config/robot.srdf
   CONFIG:
     author_name: Niels Vervaet
     author_email: nv.vervaet@outlook.com
-    generated_timestamp: 1680099118
+    generated_timestamp: 1680177612
