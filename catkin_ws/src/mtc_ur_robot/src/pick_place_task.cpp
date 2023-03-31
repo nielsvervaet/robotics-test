@@ -119,9 +119,14 @@ void PickPlaceTask::loadParameters() {
   errors += !rosparam_shortcuts::get(LOGNAME, pnh_, "hand_frame", hand_frame_);
   errors +=
       !rosparam_shortcuts::get(LOGNAME, pnh_, "world_frame", world_frame_);
+
+  // Predefined pose targets
   errors +=
       !rosparam_shortcuts::get(LOGNAME, pnh_, "arm_home_pose", arm_home_pose_);
-
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh_, "hand_open_pose",
+                                     hand_open_pose_);
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh_, "hand_close_pose",
+                                     hand_close_pose_);
   // Target object
   errors +=
       !rosparam_shortcuts::get(LOGNAME, pnh_, "object_name", object_name_);
@@ -167,12 +172,14 @@ bool PickPlaceTask::init() {
   // Sampling planner
   auto sampling_planner = std::make_shared<solvers::PipelinePlanner>();
   sampling_planner->setProperty("goal_joint_tolerance", 1e-5);
+  // sampling_planner->setPlannerId("RRTConnectkConfigDefault");
 
   // Cartesian planner
   auto cartesian_planner = std::make_shared<solvers::CartesianPath>();
   cartesian_planner->setMaxVelocityScalingFactor(1.0);
   cartesian_planner->setMaxAccelerationScalingFactor(1.0);
   cartesian_planner->setStepSize(.01);
+  // cartesian_planner->setPlannerId("RRTConnectkConfigDefault");
 
   // Set task properties
   t.setProperty("group", arm_group_name_);
@@ -242,7 +249,7 @@ void PickPlaceTask::addOpenHandStageToTask(
 
   auto stage = std::make_unique<stages::MoveTo>("open hand", sampling_planner);
   stage->setGroup(hand_group_name_);
-  // stage->setGoal(hand_open_pose_); // hand_open_pose_ is currently undefined.
+  stage->setGoal(hand_open_pose_);  // hand_open_pose_ is currently undefined.
   initial_state_ptr = stage.get();  // remember to monitor grasp pose generator
   t.add(std::move(stage));
 }
@@ -257,6 +264,8 @@ void PickPlaceTask::addMoveToPickStageToTask(
       stages::Connect::GroupPlannerVector{{arm_group_name_, sampling_planner}});
   stage->setTimeout(5.0);
   stage->properties().configureInitFrom(Stage::PARENT);
+  // initial_state_ptr = stage.get();  // remember to monitor grasp pose
+  // generator
   t.add(std::move(stage));
 }
 
@@ -326,7 +335,7 @@ void PickPlaceTask::addGenerateGraspPoseStageToContainer(
   stage->properties().configureInitFrom(Stage::PARENT);
   stage->properties().set("marker_ns", "grasp_pose");
   // stage->setPreGraspPose(hand_open_pose_);
-  stage->setPreGraspPose(arm_home_pose_);
+  stage->setPreGraspPose(hand_open_pose_);
   stage->setObject(object);
   stage->setAngleDelta(M_PI / 12);
   stage->setMonitoredStage(
@@ -374,8 +383,7 @@ void PickPlaceTask::addCloseHandStageToContainer(
 
   auto stage = std::make_unique<stages::MoveTo>("close hand", sampling_planner);
   stage->setGroup(hand_group_name_);
-  // stage->setGoal(hand_close_pose_); // hand_close_pose_ is currently
-  // undefined.
+  stage->setGoal(hand_close_pose_);  // hand_close_pose_ is currently undefined.
 
   container->insert(std::move(stage));
 }
@@ -537,7 +545,7 @@ void PickPlaceTask::addOpenHandStageToContainer(
 
   auto stage = std::make_unique<stages::MoveTo>("open hand", sampling_planner);
   stage->setGroup(hand_group_name_);
-  // stage->setGoal(hand_open_pose_);
+  stage->setGoal(hand_open_pose_);
   //  TO DO: JUST PUBLISH A 'hand=1' message, stage required?
   container->insert(std::move(stage));
 }
