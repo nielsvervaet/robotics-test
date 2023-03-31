@@ -1,6 +1,4 @@
 /*
-- Change names
-- Fix passing smartpointers by reference as done for the openhand init function
 - constant sampling_planner and cartesian_planner arguments. 
   Also; consider making them member variables that are defined in the class constructor to reduce passing complexity.
 
@@ -180,11 +178,11 @@ bool PickPlaceTask::init() {
 	addCurrentStateStageToTask(object, t);
 	Stage* initial_state_ptr = nullptr;
 	addOpenHandStageToTask(sampling_planner, initial_state_ptr, t);
-	addMoveToPickStageToTask(sampling_planner, t);
-	Stage* pick_stage_ptr = nullptr;
-	addPickObjectStageToTask(object, sampling_planner, cartesian_planner, initial_state_ptr, pick_stage_ptr, t);
-	addMoveToPlaceStageToTask(sampling_planner, t);
-	addPlaceObjectStageToTask(object, sampling_planner, cartesian_planner, pick_stage_ptr, t);
+	// addMoveToPickStageToTask(sampling_planner, t);
+	// Stage* pick_stage_ptr = nullptr;
+	// addPickObjectStageToTask(object, sampling_planner, cartesian_planner, initial_state_ptr, pick_stage_ptr, t);
+	// addMoveToPlaceStageToTask(sampling_planner, t);
+	// addPlaceObjectStageToTask(object, sampling_planner, cartesian_planner, pick_stage_ptr, t);
 	addMoveToHomeStageToTask(sampling_planner, t);
 
 	// prepare Task structure for planning

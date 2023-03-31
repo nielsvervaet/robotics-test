@@ -10,7 +10,7 @@ hand_frame: "ee_link"
 # Poses
 #hand_open_pose: "open"
 #hand_close_pose: "close"
-arm_home_pose: "home"
+arm_home_pose: "up"
 
 # Scene frames
 world_frame: "world"
