@@ -2,6 +2,8 @@
 
 You are asked to design and implement a pick-and-place application using a Gazebo simulation environment. The expected result of this task is a docker image and a GitHub repo with the source code.
 
+![Pick and Place Motion Planning- RViz](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif)
+
 ## Goal
 
 The scope of this assignment is limited to the robot control part of a continuous pick-and-place cycle. There are two tables; one with 5 blocks and one empty. The goal is to move all of the blocks onto the other table.
