@@ -3,14 +3,14 @@ max_solutions: 10
 
 # Planning group and link names
 arm_group_name: "manipulator"
-eef_name: "hand"
-hand_group_name: "hand"
+eef_name: "moveit_ee"
+hand_group_name: "endeffector"
 hand_frame: "ee_link"
 
 # Poses
-hand_open_pose: "open"
-hand_close_pose: "close"
-arm_home_pose: "ready"
+#hand_open_pose: "open"
+#hand_close_pose: "close"
+arm_home_pose: "home"
 
 # Scene frames
 world_frame: "world"
