@@ -20,7 +20,6 @@
   <depend>moveit_task_constructor_core</depend>
 
   <exec_depend>moveit_task_constructor_capabilities</exec_depend>
-  <!-- <exec_depend>moveit_resources_panda_moveit_config</exec_depend> -->
 
   <test_depend>rostest</test_depend>
   <test_depend>moveit_fake_controller_manager</test_depend>
