@@ -2,7 +2,7 @@
 
 You are asked to design and implement a pick-and-place application using a Gazebo simulation environment. The expected result of this task is a docker image and a GitHub repo with the source code.
 
-![Pick and Place Motion Planning- RViz](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif)
+![Pick and Place Motion Planning- RViz]([https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://giphy.com/embed/JZPQAZkFR3mmnkDC9Q))
 
 ## Goal
 
