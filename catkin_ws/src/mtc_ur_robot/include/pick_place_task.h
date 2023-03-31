@@ -60,7 +60,7 @@
 
 #pragma once
 
-namespace moveit_task_constructor_demo {
+namespace mtc_ur_robot {
 using namespace moveit::task_constructor;
 
 // prepare a demo environment from ROS parameters under pnh
@@ -80,6 +80,27 @@ public:
 
 private:
 	void loadParameters();
+	void addCurrentStateStageToTask(const std::string &object, Task &t);
+	void addOpenHandStageToTask(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, Stage *&initial_state_ptr, Task &t);
+	void addMoveToPickStageToTask(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, Task &t);
+	void addPickObjectStageToTask(const std::string &object, std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, std::shared_ptr<solvers::CartesianPath> &cartesian_planner, Stage *initial_state_ptr, Stage*& pick_stage_ptr, Task &t);
+	void addApproachObjectStageToContainer(std::shared_ptr<solvers::CartesianPath> &cartesian_planner, std::unique_ptr<SerialContainer> &container);
+	void addGenerateGraspPoseStageToContainer(const std::string &object, Stage* initial_state_ptr, std::unique_ptr<SerialContainer> &container);
+	void addAllowHandObjectCollisionStageToContainer(Task &t, const std::string &object, std::unique_ptr<SerialContainer> &container);
+	void addCloseHandStageToContainer(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, std::unique_ptr<SerialContainer> &container);
+	void addAttachObjectStageToContainer(const std::string &object, std::unique_ptr<SerialContainer> &container);
+	void addAllowObjectSupportCollisionStageToContainer(const std::string &object, std::unique_ptr<SerialContainer> &container);
+	void addLiftObjectStageToContainer(std::shared_ptr<solvers::CartesianPath> &cartesian_planner, std::unique_ptr<SerialContainer> &container);
+	void addForbidObjectSupportCollisionStageToContainer(const std::string &object, std::unique_ptr<SerialContainer> &container);
+	void addMoveToPlaceStageToTask(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, Task &t);
+	void addPlaceObjectStageToTask(const std::string &object, std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, std::shared_ptr<solvers::CartesianPath> &cartesian_planner, Stage* pick_stage_ptr, Task &t);
+	void addLowerObjectStageToContainer(std::shared_ptr<solvers::CartesianPath> &cartesian_planner, std::unique_ptr<SerialContainer> &container);
+	void addGeneratePlacePoseStageToContainer(const std::string &object, Stage* pick_stage_ptr, std::unique_ptr<SerialContainer> &container);
+	void addOpenHandStageToContainer(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, std::unique_ptr<SerialContainer> &container);
+	void addForbidArmObjectCollisionStageToContainer(Task &t, std::unique_ptr<SerialContainer> &container);
+	void addDetachObjectStageToContainer(std::unique_ptr<SerialContainer> &container);
+	void addRetreatMotionStageToContainer(std::shared_ptr<solvers::CartesianPath> &cartesian_planner, std::unique_ptr<SerialContainer> &container);
+	void addMoveToHomeStageToTask(std::shared_ptr<solvers::PipelinePlanner> &sampling_planner, Task &t);
 
 	static constexpr char LOGNAME[]{ "pick_place_task" };
 
