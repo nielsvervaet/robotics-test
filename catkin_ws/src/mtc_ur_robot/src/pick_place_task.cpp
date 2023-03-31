@@ -317,7 +317,7 @@ void PickPlaceTask::addApproachObjectStageToContainer(
   // Set hand forward direction
   geometry_msgs::Vector3Stamped vec;
   vec.header.frame_id = hand_frame_;
-  vec.vector.z = 1.0;
+  vec.vector.x = 1;
   stage->setDirection(vec);
   container->insert(std::move(stage));
 }
@@ -590,12 +590,14 @@ void PickPlaceTask::addRetreatMotionStageToContainer(
   auto stage = std::make_unique<stages::MoveRelative>("retreat after place",
                                                       cartesian_planner);
   stage->properties().configureInitFrom(Stage::PARENT, {"group"});
-  stage->setMinMaxDistance(.12, .25);
+  stage->setMinMaxDistance(approach_object_min_dist_,
+                           approach_object_max_dist_);
   stage->setIKFrame(hand_frame_);
   stage->properties().set("marker_ns", "retreat");
+
   geometry_msgs::Vector3Stamped vec;
   vec.header.frame_id = hand_frame_;
-  vec.vector.z = -1.0;
+  vec.vector.x = -1;
   stage->setDirection(vec);
   container->insert(std::move(stage));
 }

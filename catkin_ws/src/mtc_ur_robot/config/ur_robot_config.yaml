@@ -1,5 +1,5 @@
 # Total planning attempts
-max_solutions: 10
+max_solutions: 20
 
 # Planning group and link names
 arm_group_name: "manipulator"
@@ -25,7 +25,7 @@ object_dimensions: [0.25, 0.02] # [height, radius]
 object_pose: [0.5, -0.25, 0.0, 0, 0, 0]
 
 # Table model
-spawn_table: false
+spawn_table: true
 table_name: "table"
 table_dimensions: [0.4, 0.5, 0.1]  # [length, width, height]
 table_pose: [0.5, -0.25, 0, 0, 0, 0]
@@ -38,8 +38,8 @@ place_pose: [0.6, -0.15, 0, 0, 0, 0]
 place_surface_offset: 0.0001 # place offset from table
 
 # Valid distance range when approaching an object for picking
-approach_object_min_dist: 0.1
-approach_object_max_dist: 0.15
+approach_object_min_dist: 0.01
+approach_object_max_dist: 0.2
 
 # Valid height range when lifting an object after pick
 lift_object_min_dist: 0.01
