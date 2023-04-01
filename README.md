@@ -100,7 +100,7 @@ MoveIt is also available for ROS1, which is syntax-wise more of a challenge to m
 | Ubuntu 20.04 | ROS1 NoEtic | Moveit |
 |--------------|-------------|--------|
 
-With this set-up I managed to complete the Tutorial in ROS1 by creating the `mtc_panda` package. The tutorial produces the following animation for pick and place motion with a Panda robot:
+With this set-up I managed to complete the Tutorial in ROS1 by creating the `mtc_panda` package in the `catkin_ws` workspace. The tutorial produces the following animation for pick and place motion with a Panda robot:
 
 [<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM2YzQyYzAyOTg3MGI2YzY1N2E3NGIzMmY1MzY2YWM4NDI5ZjEwOSZjdD1n/OR0xHe5doSbEYZm972/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM2YzQyYzAyOTg3MGI2YzY1N2E3NGIzMmY1MzY2YWM4NDI5ZjEwOSZjdD1n/OR0xHe5doSbEYZm972/giphy.gif)
 
@@ -126,7 +126,7 @@ Now the next step is to try and build upon this tutorial to solve the case.
 
 ### 4) Generate a MoveIt ROS package via the moveit setup assistant and set-up the Gazebo link. 
 
-I made use of the provided URDF file of the simulated robot to generate a MoveIt ROS package for the robot of interest. This generated `moveit_ur_robot` package required some tweaking, but allowed me to launch the UR Robot together with MoveIt into a RVIZ visualization. While doing this, I made another big step, since I managed to control the Gazebo Simulation by planning trajectorys from one robot configuration to another in the RVIZ visualization. This functionality can be visualized as follows:
+I made use of the provided URDF file of the simulated robot to generate a MoveIt ROS package for the robot of interest. This generated `moveit_ur_robot` package in the `catkin_ws` workspace required some tweaking, but allowed me to launch the UR Robot together with MoveIt into a RVIZ visualization. While doing this, I made another big step, since I managed to control the Gazebo Simulation by planning trajectorys from one robot configuration to another in the RVIZ visualization. This functionality can be visualized as follows:
 
 [<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTEzN2FjYjVkYjhkN2QzYjk0YzQ3NWY5YzExNzA2YWI1YTJmODAwZSZjdD1n/bXI8ubUrVKrzxFN7Rw/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTEzN2FjYjVkYjhkN2QzYjk0YzQ3NWY5YzExNzA2YWI1YTJmODAwZSZjdD1n/bXI8ubUrVKrzxFN7Rw/giphy.gif)
 
@@ -153,7 +153,7 @@ What I learned from this step is that if I can solve the problem within the RVIZ
 
 ### 5) Solve a Pick and Place task for the UR Robot with MoveIt. 
 
-Building on the tutorial that was completed in step 3, the intention now is to pick and place the same object as was done previously with the Panda robot, but now with the UR Robot. I am proud to announce that this crucial step was completed succesfully. I have introduced the `mtc_ur_robot` package, which contains a pick and place task class in which the magic happens. The result was provided in the first section already, but for the sake of completeness, it is reported again here:
+Building on the tutorial that was completed in step 3, the intention now is to pick and place the same object as was done previously with the Panda robot, but now with the UR Robot. I am proud to announce that this crucial step was completed succesfully. I have introduced the `mtc_ur_robot` package in the `catkin_ws` workspace, which contains a pick and place task class in which the magic happens. The result was provided in the first section already, but for the sake of completeness, it is reported again here:
 
 [<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif)
 
