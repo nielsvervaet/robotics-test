@@ -21,6 +21,7 @@ $ cd catkin_ws
 $ source ${ROS1_INSTALL_PATH}/devel/setup.bash
 $ source ~/ws_moveit/devel/setup.bash
 $ catkin build
+$ source devel/setup.bash
 ```
 Please let me know in case any problems rise while trying to compile my solution. I am very open to give the docker route another shot in that case. Also I would be open for a quick call to guide you through the compilation process.
 
