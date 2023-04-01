@@ -34,7 +34,7 @@
    Desc:   A demo to show MoveIt Task Constructor in action
 */
 
-#include <moveit_task_constructor_demo/pick_place_task.h>
+#include <pick_place_task.h>
 #include <rosparam_shortcuts/rosparam_shortcuts.h>
 
 namespace moveit_task_constructor_demo {

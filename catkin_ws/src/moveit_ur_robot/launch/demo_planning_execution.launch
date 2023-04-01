@@ -1,0 +1,25 @@
+<launch>
+
+  <rosparam command="load" file="$(find moveit_ur_robot)/config/joint_names.yaml"/>
+
+  <include file="$(find moveit_ur_robot)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node> -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+
+  <include file="$(find moveit_ur_robot)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+  <include file="$(find moveit_ur_robot)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find mtc_ur_robot)/config/mtc.rviz" />
+  </include>
+
+</launch>

@@ -4,6 +4,6 @@
   <include file="$(find simple_scene)/launch/world_bringup.launch"/>
   <include file="$(find simple_scene)/launch/robot_bringup.launch"/>
 
-  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(dirname)/inc/rviz_config.rviz"/>
-  <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" respawn="false"/>
+  <!-- <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(dirname)/inc/rviz_config.rviz"/>
+  <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" respawn="false"/> -->
 </launch>

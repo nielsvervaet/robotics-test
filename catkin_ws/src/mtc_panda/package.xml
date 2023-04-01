@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>mtc_case</name>
+  <name>mtc_panda</name>
   <version>0.0.1</version>
-  <description>Demo illustrating a pick and place application </description>
+  <description>Demo illustrating a pick and place application for the panda robot</description>
 
   <author email="nv.vervaet@outlook.com">Niels Vervaet</author>
   <maintainer email="nv.vervaet@outlook.com">Niels Vervaet</maintainer>

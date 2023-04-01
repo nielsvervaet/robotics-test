@@ -38,12 +38,12 @@
 #include <ros/ros.h>
 
 // MTC pick/place demo implementation
-#include <moveit_task_constructor_demo/pick_place_task.h>
+#include <pick_place_task.h>
 
-constexpr char LOGNAME[] = "moveit_task_constructor_demo";
+constexpr char LOGNAME[] = "mtc_case";
 
 int main(int argc, char** argv) {
-	ros::init(argc, argv, "mtc_tutorial");
+	ros::init(argc, argv, "mtc_case");
 	ros::NodeHandle nh, pnh("~");
 
 	// Handle Task introspection requests from RViz & feedback during execution
