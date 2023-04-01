@@ -22,7 +22,7 @@ void spawnObject(moveit::planning_interface::PlanningSceneInterface &psi,
     throw std::runtime_error("Failed to spawn object: " + object.id);
 }
 
-moveit_msgs::CollisionObject createTable(const ros::NodeHandle &pnh) {
+moveit_msgs::CollisionObject createTable(const ros::NodeHandle &pnh, std::string table_par_name) {
   /****************************************************
    *              Create Table                  		*
    ***************************************************/
@@ -31,12 +31,12 @@ moveit_msgs::CollisionObject createTable(const ros::NodeHandle &pnh) {
   std::vector<double> table_dimensions;
   geometry_msgs::Pose pose;
   std::size_t errors = 0;
-  errors += !rosparam_shortcuts::get(LOGNAME, pnh, "table_name", table_name);
-  errors += !rosparam_shortcuts::get(LOGNAME, pnh, "table_reference_frame",
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh, table_par_name + std::string("_name"), table_name);
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh, table_par_name + std::string("_reference_frame"),
                                      table_reference_frame);
-  errors += !rosparam_shortcuts::get(LOGNAME, pnh, "table_dimensions",
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh, table_par_name + std::string("_dimensions"),
                                      table_dimensions);
-  errors += !rosparam_shortcuts::get(LOGNAME, pnh, "table_pose", pose);
+  errors += !rosparam_shortcuts::get(LOGNAME, pnh, table_par_name + std::string("_pose"), pose);
   rosparam_shortcuts::shutdownIfError(LOGNAME, errors);
 
   moveit_msgs::CollisionObject object;
@@ -86,9 +86,13 @@ void setupDemoScene(ros::NodeHandle &pnh) {
   // Add table and object to planning scene
   ros::Duration(1.0).sleep();  // Wait for ApplyPlanningScene service
   moveit::planning_interface::PlanningSceneInterface psi;
-  if (pnh.param("spawn_table", true)) {
-    spawnObject(psi, createTable(pnh));
+  if (pnh.param("spawn_table_1", true)) {
+    spawnObject(psi, createTable(pnh, "table_1"));
   }
+  if (pnh.param("spawn_table_2", true)) {
+    spawnObject(psi, createTable(pnh, "table_2"));
+  }
+
   spawnObject(psi, createObject(pnh));
 }
 
