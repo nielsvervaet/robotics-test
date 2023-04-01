@@ -12,27 +12,17 @@ A motion planning methodology was developed by making use of the [MoveIt](https:
 
 ## How to Access my work
 
+I have tried to include my work into the provided docker image, but I ran into some conflicting dependencies issues. Therefore, I propose to build my solution from source via the following steps. These build instructions assume the `${ROS1_INSTALL_PATH}` (ROS1 NoEtic, e.g. `/opt/ros/noetic`) variable and the ${RMW_IMPLEMENTATION} (e.g. rmw_cyclonedds_cpp) variables to be set in your `.bashrc`file. Please check whether rosdep installed all required dependencies. Also, it is assumed that MoveIt (including the Moveit Task Constructor package) is available into the `~/ws_moveit` workspace. It should then be possible to succesfully build my solutions via the following set of terminal commands:
 
-### Using docker image
-
-```bash
-$ docker pull ghcr.io/remyrobotics/robotics-test:latest
-$ xhost local:root
-$ docker-compose up
-```
-
-Alternatively, you can build manually with the given Dockerfile.
-
-### Building from Source
+T1:
 
 ```bash
-$ ./build.sh
 $ cd catkin_ws
+$ source ${ROS1_INSTALL_PATH}/devel/setup.bash
+$ source ~/ws_moveit/devel/setup.bash
 $ catkin build
-$ source devel/setup.bash
-$ roslaunch simple_scene gazebo.launch
 ```
-
+Please let me know in case any problems rise while trying to compile my solution. I am very open to give the docker route another shot in that case. Also I would be open for a quick call to guide you through the compilation process.
 
 ## Steps Taken
 
