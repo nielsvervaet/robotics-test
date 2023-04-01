@@ -6,9 +6,9 @@ I was asked to design and implement a pick-and-place application using a Gazebo 
 
 The  main result of my work on this Robotics Software Engineer task is summarized in the following animation. 
 
-![PickAndPlace](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif)
+[<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif)
 
-A motion planning methodology was developed by making use of the [MoveIt](https://moveit.picknik.ai/humble/index.html) robot manipulation software. The following chapter guides us to the steps taken and lessons learned that got me to this main result.
+A motion planning methodology was developed by making use of the [MoveIt](https://moveit.picknik.ai/humble/index.html) robot manipulation software. The following chapters guid you through the steps taken and lessons learned that got me to this main result. Also, it allows you to assess my technical competences for the position of Robotics software engineer at REMY Robotics.
 
 ## How to Access my work
 
@@ -48,7 +48,8 @@ $ roslaunch simple_scene gazebo.launch
   
   In short, a Gazebo simulation of a manipulator arm is provided and the objective is to move all blocks from one table to the other. An overview can be seen in the following animation:
 
-![Gazebo_1](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjIwN2IwOTI4ZmM1ZjI3NWIxMmFmYjI4MTE2OWVkODhkZGUyNGM4MiZjdD1n/EIBFqhjWdSIOTZbTUA/giphy.gif)
+
+[<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjIwN2IwOTI4ZmM1ZjI3NWIxMmFmYjI4MTE2OWVkODhkZGUyNGM4MiZjdD1n/EIBFqhjWdSIOTZbTUA/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjIwN2IwOTI4ZmM1ZjI3NWIxMmFmYjI4MTE2OWVkODhkZGUyNGM4MiZjdD1n/EIBFqhjWdSIOTZbTUA/giphy.gif)
 
 ### 2) Moveit2 - Ubuntu 22.04
 
@@ -95,7 +96,7 @@ $ ros2 launch listener_jointstates_cpp listener_jointstates.launch.py
 ```
 In T3, one is supposed to see the following behavior: 
 
-![Listener](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzA5YjcyNjAxZWYyNGJmMDVjNmZiYTJiNGM0MmQ4MTQwN2IzODExYSZjdD1n/czI8dSwHJiKSdAVzn5/giphy.gif)
+[Listener](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzA5YjcyNjAxZWYyNGJmMDVjNmZiYTJiNGM0MmQ4MTQwN2IzODExYSZjdD1n/czI8dSwHJiKSdAVzn5/giphy.gif)
 
 
 The ROS2 listener node prints in the terminal the name of one of the joints in the ROS1 Gazebo simulation. Hence, it is possible to use the rosbridge as intended! Unfortunately, another set-up problem arose while building on this idea. The pick and place task is highly relying on the Moveit Task Constructor, which appears to be unreleased for Moveit2 of ROS2 Foxy (it is only available for ROS2 Humble, which was eliminated already in step 2). I have at least not been able to resolve all dependency issues that I ran into, and this is where I dropped my contributions to make this test assignment work via a ROS2 solution. 
@@ -109,7 +110,7 @@ MoveIt is also available for ROS1, which is syntax-wise more of a challenge to m
 
 With this set-up I managed to complete the Tutorial in ROS1 by creating the `mtc_panda` package. The tutorial produces the following animation for pick and place motion with a Panda robot:
 
-![Panda](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM2YzQyYzAyOTg3MGI2YzY1N2E3NGIzMmY1MzY2YWM4NDI5ZjEwOSZjdD1n/OR0xHe5doSbEYZm972/giphy.gif)
+[<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM2YzQyYzAyOTg3MGI2YzY1N2E3NGIzMmY1MzY2YWM4NDI5ZjEwOSZjdD1n/OR0xHe5doSbEYZm972/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM2YzQyYzAyOTg3MGI2YzY1N2E3NGIzMmY1MzY2YWM4NDI5ZjEwOSZjdD1n/OR0xHe5doSbEYZm972/giphy.gif)
 
 These results are reproducable by running the following sets of terminal commands in separate terminals:
 
@@ -133,9 +134,9 @@ Now the next step is to try and build upon this tutorial to solve the case.
 
 ### 4) Generate a MoveIt ROS package via the moveit setup assistant and set-up the Gazebo link. 
 
-I made use of the provided URDF file of the simulated robot to generate a MoveIt ROS package for the robot of interest. This generated `moveit_ur_robot` package required some tweeking, but allowed me to launch the UR Robot together with MoveIt into a RVIZ visualization. While doing this, I made another big step, since I managed to control the Gazebo Simulation by planning trajectorys from one robot configuration to another in the RVIZ visualization. This functionality can be visualized as follows:
+I made use of the provided URDF file of the simulated robot to generate a MoveIt ROS package for the robot of interest. This generated `moveit_ur_robot` package required some tweaking, but allowed me to launch the UR Robot together with MoveIt into a RVIZ visualization. While doing this, I made another big step, since I managed to control the Gazebo Simulation by planning trajectorys from one robot configuration to another in the RVIZ visualization. This functionality can be visualized as follows:
 
-![Panda](https://gifyu.com/image/SIr6S)
+[Panda2](https://gifyu.com/image/SIr6S)
 
 This animation can be reproduced by running the following sets of terminal commands in separate terminals:
 
@@ -162,7 +163,7 @@ What I learned from this step is that if I can solve the problem within the RVIZ
 
 Building on the tutorial that was completed in step 3, the intention now is to pick and place the same object as was done previously with the Panda robot, but now with the UR Robot. I am proud to announce that this crucial step was completed succesfully. I have introduced the `mtc_ur_robot` package, which contains a pick and place task class in which the magic happens. The result was provided in the first section already, but for the sake of completeness, it is reported again here:
 
-![PickAndPlace](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif)
+[<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFmMGNjNDZmNDE1ODcyZjMwZjgwMTFhMjhlZjBkYzRkMThlMjcwNSZjdD1n/JZPQAZkFR3mmnkDC9Q/giphy.gif)
 
 This animation can be reproduced by running the following sets of terminal commands in separate terminals:
 
@@ -192,9 +193,9 @@ $ roslaunch mtc_ur_robot pickplace.launch
 
 Taking a closer look at the implementation, it can be seen that the Pick and Place task was broken down into various stages. As such, a complex task can be simplified by solving the motion planning problems for the individual stages sequentially while guaranteeing state continuity on all respective state boundaries. The stages that are part of my solution can be observed in more detail in the following animation: 
 
-![Stages](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2RlN2M4NjUxYWJjNTM3Y2FiNmM5M2Y2OWMzY2I4ZjZiYzY1MjhjZSZjdD1n/kCEmTtRu8uEeTedopo/giphy.gif)
+[<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2RlN2M4NjUxYWJjNTM3Y2FiNmM5M2Y2OWMzY2I4ZjZiYzY1MjhjZSZjdD1n/kCEmTtRu8uEeTedopo/giphy.gif" width="75%"/>](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2RlN2M4NjUxYWJjNTM3Y2FiNmM5M2Y2OWMzY2I4ZjZiYzY1MjhjZSZjdD1n/kCEmTtRu8uEeTedopo/giphy.gif)
 
-Stage definitions are intuitive and allow for easy extension of the pick and place motion (e.g. pick and place of multiple objects). It was therefore more important for me to be able to execute the planned trajectory in the Gazebo simulation. Unfortunately, I have been unsuccesful in forwarding the planned trajectory into the Gazebo simulation, though I am confident that I am not far of, given the results of step 3. 
+Stage definitions are intuitive and allow for easy extension of the pick and place motion (e.g. pick and place of multiple objects). It was therefore more important for me to be able to execute the planned trajectory in the Gazebo simulation. Unfortunately, I have been unsuccesful in forwarding the planned trajectory into the Gazebo simulation, though I am confident that I am not far of, given the results of step 4. 
 
 ### 6) Conclusion
 In conclusion, I made huge progress on the test assignment and I am confident that this delivery can give you a good insight into my competences as a future robotics software engineer at REMY Robotics. The solution does show some limitations that I would be looking into as a next step: 
